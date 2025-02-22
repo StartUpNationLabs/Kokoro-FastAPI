@@ -47,7 +47,7 @@ class Settings(BaseSettings):
     max_temp_dir_size_mb: int = 2048  # Maximum size of temp directory (2GB)
     max_temp_dir_age_hours: int = 1  # Remove temp files older than 1 hour
     max_temp_dir_count: int = 3  # Maximum number of temp files to keep
-    auth_token = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(64))
+    auth_token: str = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(64))
 
     class Config:
         env_file = ".env"
