@@ -13,7 +13,7 @@ from fastapi import APIRouter, Depends, Header, HTTPException, Request, Response
 from fastapi.responses import FileResponse, StreamingResponse
 from loguru import logger
 
-from ..core.config import settings
+from ..core.config import settings, verify_token
 from ..services.audio import AudioService
 from ..services.tts_service import TTSService
 from ..structures import OpenAISpeechRequest
@@ -39,6 +39,7 @@ _openai_mappings = load_openai_mappings()
 router = APIRouter(
     tags=["OpenAI Compatible TTS"],
     responses={404: {"description": "Not found"}},
+    dependencies=[Depends(verify_token)]
 )
 
 # Global TTSService instance with lock
