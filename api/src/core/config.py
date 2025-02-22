@@ -56,8 +56,9 @@ class Settings(BaseSettings):
         env_file = ".env"
 
 settings = Settings()
+security = HTTPBearer()
 print(settings.auth_token)
-def verify_token(credentials: HTTPAuthorizationCredentials = Depends(Security)):
+def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
     """Authentication dependency that checks for a valid token."""
     if credentials.credentials != settings.auth_token:
         raise HTTPException(status_code=401, detail="Invalid token")
