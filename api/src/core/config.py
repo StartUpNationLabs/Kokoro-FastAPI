@@ -2,6 +2,9 @@ from pydantic_settings import BaseSettings
 
 import random
 import string
+from fastapi import FastAPI, Depends, HTTPException, Security
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 class Settings(BaseSettings):
     # API Settings
     api_title: str = "Kokoro TTS API"
