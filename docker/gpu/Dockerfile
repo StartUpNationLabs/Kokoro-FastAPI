@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM nvidia/cuda:12.2.0-cudnn-runtime-ubuntu24.04
+FROM --platform=$BUILDPLATFORM nvidia/cuda:12.2.2-runtime-ubuntu22.04
 # Set non-interactive frontend
 ENV DEBIAN_FRONTEND=noninteractive
 
