@@ -1,6 +1,6 @@
 from pydantic_settings import BaseSettings
 
-
+import random
 class Settings(BaseSettings):
     # API Settings
     api_title: str = "Kokoro TTS API"
